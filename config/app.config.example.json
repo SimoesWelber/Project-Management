@@ -1,0 +1,85 @@
+{
+  "app": {
+    "name": "INCA - INGENIA Cuniculus Aprobation",
+    "version": "1.0.0",
+    "description": "Web-based platform for technical engineering document reviews",
+    "organization": "São Paulo Metro (Companhia do Metropolitano de São Paulo)"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "apiPrefix": "/api/v1"
+  },
+  "features": {
+    "authentication": {
+      "enabled": true,
+      "providers": ["local"],
+      "sessionTimeout": 3600000
+    },
+    "fileUpload": {
+      "enabled": true,
+      "maxSize": 10485760,
+      "allowedTypes": [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/vnd.ms-excel",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "image/png",
+        "image/jpeg",
+        "application/dwg"
+      ]
+    },
+    "notifications": {
+      "enabled": true,
+      "channels": ["email", "in-app"]
+    },
+    "audit": {
+      "enabled": true,
+      "retentionDays": 365
+    }
+  },
+  "security": {
+    "cors": {
+      "enabled": true,
+      "origins": ["http://localhost:3001"]
+    },
+    "rateLimit": {
+      "enabled": true,
+      "windowMs": 900000,
+      "maxRequests": 100
+    },
+    "helmet": {
+      "enabled": true
+    }
+  },
+  "pagination": {
+    "defaultLimit": 20,
+    "maxLimit": 100
+  },
+  "documentTypes": [
+    "Engineering Design",
+    "Technical Specification",
+    "Construction Methodology",
+    "Safety Assessment",
+    "Environmental Report",
+    "Quality Assurance",
+    "Other"
+  ],
+  "documentStatuses": [
+    "DRAFT",
+    "SUBMITTED",
+    "IN_REVIEW",
+    "PENDING_REVISION",
+    "APPROVED",
+    "REJECTED",
+    "ARCHIVED"
+  ],
+  "userRoles": [
+    "ADMIN",
+    "SUBMITTER",
+    "REVIEWER",
+    "APPROVER",
+    "VIEWER"
+  ]
+}

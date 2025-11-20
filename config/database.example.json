@@ -1,0 +1,45 @@
+{
+  "database": {
+    "development": {
+      "host": "localhost",
+      "port": 5432,
+      "database": "inca_dev",
+      "username": "your_username",
+      "password": "your_password",
+      "dialect": "postgres",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 30000,
+        "idle": 10000
+      }
+    },
+    "test": {
+      "host": "localhost",
+      "port": 5432,
+      "database": "inca_test",
+      "username": "your_username",
+      "password": "your_password",
+      "dialect": "postgres"
+    },
+    "production": {
+      "host": "${DB_HOST}",
+      "port": "${DB_PORT}",
+      "database": "${DB_NAME}",
+      "username": "${DB_USER}",
+      "password": "${DB_PASSWORD}",
+      "dialect": "postgres",
+      "pool": {
+        "max": 20,
+        "min": 5,
+        "acquire": 30000,
+        "idle": 10000
+      },
+      "ssl": true
+    }
+  },
+  "logging": {
+    "level": "info",
+    "format": "json"
+  }
+}
